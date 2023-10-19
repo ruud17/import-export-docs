@@ -18,29 +18,28 @@ defineProps({
           <v-img
             cols="4"
             class="bg-white"
-            max-width="100"
-            max-height="140"
+            max-width="80"
+            max-height="100"
+            width="80"
+            height="100"
             :src="book.cover_image"
             cover
           ></v-img>
           <div class="d-flex flex-column pl-4">
-            <p class="text-h6 font-weight-bold">{{ book.title }}</p>
-            <p class="text-h6 font-weight-medium text-disabled">{{ book.author }}</p>
+            <p class="text-h7 font-weight-bold pb-2">{{ book.title }}</p>
+            <p class="text-h7 font-weight-medium text-disabled">{{ book.author }}</p>
           </div>
         </div>
       </v-col>
-      <v-col cols="2" class="d-flex font-weight-bold align-center text-h6 justify-center">
+      <v-col cols="2" class="d-flex font-weight-bold align-center text-h7 justify-center">
         <span> {{ book.releaseDate }}</span>
       </v-col>
-      <v-col cols="2" class="d-flex font-weight-bold align-center text-h6 justify-center">
+      <v-col cols="2" class="d-flex font-weight-bold align-center text-h7 justify-center">
         <span> {{ book.rating }}/10</span>
       </v-col>
-      <v-col
-        cols="2"
-        class="d-flex flex-column font-weight-bold align-center text-h6 justify-center"
-      >
+      <v-col cols="2" class="d-flex flex-column align-center justify-center">
         <ul v-for="s in book.buyOn" :key="s">
-          <li class="font-weight-bold text-h6">{{ s }}</li>
+          <li class="font-weight-bold text-h7">{{ s }}</li>
         </ul>
       </v-col>
     </v-row>

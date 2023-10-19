@@ -4,7 +4,7 @@ import { defineStore } from 'pinia';
 
 interface State {
   books: Book[];
-  error: unknown;
+  error: string;
 }
 
 export const useBookStore = defineStore('books', {

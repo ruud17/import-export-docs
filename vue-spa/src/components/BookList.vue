@@ -3,6 +3,8 @@ import { onMounted, computed, ref } from 'vue';
 import { useBookStore } from '@/store/bookStore';
 import BookRow from './BookRow.vue';
 import BookTableHeader from './BookTableHeader.vue';
+import BookHeader from './BookHeader.vue';
+import DisplayError from './DisplayError.vue';
 
 const bookStore = useBookStore();
 
@@ -19,6 +21,7 @@ const totalPages = computed(() => {
   return Math.ceil(bookCount.value / itemsPerPage.value);
 });
 
+// Although it's preferable for the API to handle pagination, in this case, it's managed on the frontend to showcase its capabilities.
 const paginatedItems = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage.value;
   const end = start + itemsPerPage.value;
@@ -29,18 +32,18 @@ const paginatedItems = computed(() => {
 <template>
   <div>
     <div v-if="bookStore.error" class="error">
-      {{ error }}
+      <DisplayError :error="error" />
     </div>
 
     <div v-else-if="bookCount > 0">
-      <v-container fluid fill-height class="bg-white outlined rounded">
-        <p class="text-h4 font-weight-bold pb-8 pl-8 pt-10">Most popular Books of All time</p>
+      <v-container class="bg-white outlined rounded">
+        <BookHeader />
         <BookTableHeader />
         <v-row>
           <v-expansion-panels class="custom-panel pl-5 pr-5">
             <v-expansion-panel v-for="book in paginatedItems" :key="book.title">
               <BookRow :book="book" />
-              <v-expansion-panel-text class="text-h6">
+              <v-expansion-panel-text class="text-h7">
                 {{ book.about }}
               </v-expansion-panel-text>
             </v-expansion-panel>

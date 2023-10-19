@@ -11,8 +11,7 @@ class BookService {
    * @throws Will throw an error if the API URL is not defined or the request fails.
    */
   static async getBooks(): Promise<Book[]> {
-    // const apiUrl = EnvChecker.getApiUrl(); // Get the API URL
-    const apiUrl = 'https://my-json-server.typicode.com/dmitrijt9/book-api-mock/books';
+    const apiUrl = EnvChecker.getApiUrl(); // Get the API URL
 
     try {
       const response = await axios.get<Book[]>(`${apiUrl}`);
