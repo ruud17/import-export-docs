@@ -5,6 +5,7 @@ import BookRow from './BookRow.vue';
 import BookTableHeader from './BookTableHeader.vue';
 import BookHeader from './BookHeader.vue';
 import DisplayError from './DisplayError.vue';
+import BookPagination from './BookPagination.vue';
 
 const bookStore = useBookStore();
 
@@ -27,6 +28,10 @@ const paginatedItems = computed(() => {
   const end = start + itemsPerPage.value;
   return bookStore.books.slice(start, end);
 });
+
+const updateCurrentPage = (newPage: number) => {
+  currentPage.value = newPage;
+};
 </script>
 
 <template>
@@ -50,15 +55,11 @@ const paginatedItems = computed(() => {
           </v-expansion-panels>
         </v-row>
         <v-row v-show="bookCount > 1">
-          <v-col class="text-center">
-            <v-pagination
-              v-model="currentPage"
-              :length="totalPages"
-              prev-icon="mdi-menu-left"
-              next-icon="mdi-menu-right"
-            >
-            </v-pagination>
-          </v-col>
+          <BookPagination
+            :current-page="currentPage"
+            :total-pages="totalPages"
+            @updateCurrentPage="updateCurrentPage"
+          />
         </v-row>
       </v-container>
     </div>
@@ -74,5 +75,9 @@ const paginatedItems = computed(() => {
 
 .error {
   color: rgb(255, 0, 0);
+}
+
+.v-icon {
+  display: none !important;
 }
 </style>

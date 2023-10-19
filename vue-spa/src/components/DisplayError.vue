@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 
-defineProps<{
-  error: string;
-}>();
+defineProps({
+  error: {
+    type: String,
+    required: false
+  }
+});
 </script>
 
 <template>

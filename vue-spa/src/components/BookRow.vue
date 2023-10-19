@@ -46,16 +46,12 @@ defineProps({
   </v-expansion-panel-title>
 </template>
 
-<style>
+<style scoped>
 ul {
   list-style-type: none;
 }
 
 ul li {
   color: rgb(164, 206, 96);
-}
-
-.v-icon {
-  display: none !important;
 }
 </style>
