@@ -20,7 +20,9 @@ or
 yarn install
 ```
 
-2. Run the code
+2. Set env var (copy .env.example into .env)
+
+3. Run the code
 
 ```sh
 npm run dev
