@@ -1,9 +1,8 @@
 import { createVuetify } from 'vuetify';
-import type { ThemeDefinition } from 'vuetify';
 import { VSkeletonLoader } from 'vuetify/labs/VSkeletonLoader';
+import type { ThemeDefinition } from 'vuetify';
 import 'vuetify/styles';
 import '@mdi/font/css/materialdesignicons.css';
-
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 

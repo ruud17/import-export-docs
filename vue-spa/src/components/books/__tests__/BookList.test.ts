@@ -3,8 +3,7 @@ import { mount } from '@vue/test-utils';
 import { useBookStore } from '@/store/bookStore';
 import { createVuetify } from 'vuetify';
 import { createTestingPinia } from '@pinia/testing';
-import * as components from 'vuetify/components';
-import * as directives from 'vuetify/directives';
+import { mockedBooks } from './mock';
 import BookList from '../BookList.vue';
 import BookRow from '../BookRow.vue';
 import BookTableHeader from '../BookTableHeader.vue';
@@ -13,7 +12,8 @@ import ErrorBox from '../../common/ErrorBox.vue';
 import BookPagination from '../BookPagination.vue';
 import NoContent from '../../common/NoContent.vue';
 import ContentLoader from '../../common/ContentLoader.vue';
-import { mockedBooks } from './mock';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
 global.ResizeObserver = require('resize-observer-polyfill');
 
 describe('BookList.vue', () => {

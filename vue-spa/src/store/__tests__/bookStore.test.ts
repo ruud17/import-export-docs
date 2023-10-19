@@ -1,8 +1,8 @@
 import { setActivePinia, createPinia } from 'pinia';
 import { useBookStore } from '../../store/bookStore';
 import { describe, it, expect, beforeEach } from 'vitest';
-import BookService from '@/services/bookService';
 import { mockedBooks } from '@/components/books/__tests__/mock';
+import BookService from '@/services/bookService';
 
 describe('bookStore', () => {
   let store: ReturnType<typeof useBookStore>;

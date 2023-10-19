@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { mount } from '@vue/test-utils';
-import * as components from 'vuetify/components';
-import * as directives from 'vuetify/directives';
 import { createVuetify } from 'vuetify';
 import BookPagination from '../BookPagination.vue';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
 global.ResizeObserver = require('resize-observer-polyfill');
 
 describe('BookPagination.vue', () => {

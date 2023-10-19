@@ -1,9 +1,9 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { mount } from '@vue/test-utils';
-import * as components from 'vuetify/components';
-import * as directives from 'vuetify/directives';
 import { createVuetify } from 'vuetify';
 import BookTableHeader from '../BookTableHeader.vue';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
 
 describe('BookTableHeader.vue', () => {
   let wrapper: ReturnType<typeof mount>, vuetify: ReturnType<typeof createVuetify>;
