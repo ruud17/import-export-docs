@@ -12,7 +12,13 @@ app.use(pinia);
 app.use(vuetify);
 
 app.config.errorHandler = (err, instance, info) => {
-  // report error to tracking services
+  // log the error for debugging
+  console.error(err);
+
+  // TO DO when the app grows up:
+  // - Send this error to an error tracking service like Sentry.
+  // - ?Display a user-friendly error message to your users.
+  // - ?Or conditionally handle different kinds of errors based on the error message or type.
 };
 
 app.mount('#app');
