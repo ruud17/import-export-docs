@@ -10,16 +10,11 @@ body {
   min-height: 100vh;
   color: var(--color-background);
   background-color: rgba(235, 235, 235, 0.64);
-  transition:xw
-    color 0.5s,
+  transition:
+    xw color 0.5s,
     background-color 0.5s;
   line-height: 1.6;
-  font-family:
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    'Helvetica Neue',
-    sans-serif;
+  font-family: Roboto, Oxygen, Ubuntu, 'Helvetica Neue', sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -33,7 +28,6 @@ body {
 
 .v-expansion-panel:not(:first-child)::after {
   border-top-style: none !important;
-
 }
 
 .v-expansion-panel__shadow {

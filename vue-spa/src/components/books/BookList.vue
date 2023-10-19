@@ -4,10 +4,10 @@ import { useBookStore } from '@/store/bookStore';
 import BookRow from './BookRow.vue';
 import BookTableHeader from './BookTableHeader.vue';
 import BookHeader from './BookHeader.vue';
-import DisplayError from './DisplayError.vue';
+import ErrorBox from '../common/ErrorBox.vue';
 import BookPagination from './BookPagination.vue';
-import NoBooksToDisplay from './NoBooksToDisplay.vue';
-import BooksLoading from './BooksLoading.vue';
+import NoContent from '../common/NoContent.vue';
+import ContentLoader from '../common/ContentLoader.vue';
 
 const bookStore = useBookStore();
 
@@ -38,10 +38,10 @@ const updateCurrentPage = (newPage: number) => {
 </script>
 
 <template>
-  <div v-if="loading"><BooksLoading /></div>
+  <div v-if="loading"><ContentLoader /></div>
   <div v-else>
     <div v-if="bookStore.error" class="error">
-      <DisplayError :error="error" />
+      <ErrorBox :error="error" />
     </div>
 
     <div v-else-if="bookCount > 0">
@@ -68,7 +68,7 @@ const updateCurrentPage = (newPage: number) => {
       </v-container>
     </div>
 
-    <div v-else><NoBooksToDisplay /></div>
+    <div v-else><NoContent /></div>
   </div>
 </template>
 
