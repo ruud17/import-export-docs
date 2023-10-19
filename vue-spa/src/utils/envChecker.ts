@@ -6,9 +6,10 @@ class EnvChecker {
    * @returns {string} - The value of API_URL.
    */
   static getApiUrl(): string {
-    const apiUrl = process.env.VUE_APP_API_URL;
+    const apiUrl = import.meta.env.VITE_APP_API_URL;
+
     if (!apiUrl) {
-      throw new Error('API_URL is not defined in the environment variables.');
+      throw new Error('API_URL is not defined in the environment variables!');
     }
     return apiUrl;
   }

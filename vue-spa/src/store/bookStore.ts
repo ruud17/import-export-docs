@@ -11,7 +11,7 @@ export const useBookStore = defineStore('books', {
   state: (): State => {
     return {
       books: [],
-      error: null
+      error: ''
     };
   },
   actions: {
