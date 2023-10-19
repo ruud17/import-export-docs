@@ -21,11 +21,11 @@ export const useBookStore = defineStore('books', {
       try {
         this.loading = true;
         const booksData = await BookService.getBooks();
-        this.loading = false;
         this.books = booksData;
       } catch (error: any) {
-        this.loading = false;
         this.error = error.message;
+      } finally {
+        this.loading = false;
       }
     }
   }
