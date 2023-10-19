@@ -13,7 +13,7 @@ app.use(vuetify);
 
 app.config.errorHandler = (err, instance, info) => {
   // log the error for debugging
-  console.error(err);
+  console.error(`INSTANCE: ${instance} - ERROR:${err} - INFO: ${info}`);
 
   // TO DO when the app grows up:
   // - Send this error to an error tracking service like Sentry.
