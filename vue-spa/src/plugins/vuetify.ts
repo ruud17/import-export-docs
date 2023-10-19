@@ -1,10 +1,11 @@
-import { createVuetify } from 'vuetify'
-import type { ThemeDefinition } from 'vuetify'
-import 'vuetify/styles'
-import '@mdi/font/css/materialdesignicons.css'
+import { createVuetify } from 'vuetify';
+import type { ThemeDefinition } from 'vuetify';
+import { VSkeletonLoader } from 'vuetify/labs/VSkeletonLoader';
+import 'vuetify/styles';
+import '@mdi/font/css/materialdesignicons.css';
 
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
 
 const lightTheme: ThemeDefinition = {
   dark: false,
@@ -17,7 +18,7 @@ const lightTheme: ThemeDefinition = {
     success: '#27ae60',
     warning: '#f1c40f'
   }
-}
+};
 
 const darkTheme: ThemeDefinition = {
   dark: true,
@@ -30,10 +31,13 @@ const darkTheme: ThemeDefinition = {
     success: '#27ae60',
     warning: '#f1c40f'
   }
-}
+};
 
 export default createVuetify({
-  components,
+  components: {
+    VSkeletonLoader,
+    ...components
+  },
   directives,
   theme: {
     defaultTheme: 'light',
@@ -42,4 +46,4 @@ export default createVuetify({
       dark: darkTheme
     }
   }
-})
+});

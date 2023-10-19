@@ -11,7 +11,7 @@ defineProps({
 </script>
 
 <template>
-  <v-expansion-panel-title>
+  <v-expansion-panel-title :hide-actions="true">
     <v-row>
       <v-col cols="6" class="font-weight-bold">
         <div class="d-flex">

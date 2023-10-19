@@ -23,7 +23,6 @@ const pageChanged = (newPage: number) => {
       prev-icon="mdi-menu-left"
       next-icon="mdi-menu-right"
       @update:model-value="pageChanged"
-      class="elevation-1"
     >
     </v-pagination>
   </v-col>

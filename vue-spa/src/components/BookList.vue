@@ -6,6 +6,8 @@ import BookTableHeader from './BookTableHeader.vue';
 import BookHeader from './BookHeader.vue';
 import DisplayError from './DisplayError.vue';
 import BookPagination from './BookPagination.vue';
+import NoBooksToDisplay from './NoBooksToDisplay.vue';
+import BooksLoading from './BooksLoading.vue';
 
 const bookStore = useBookStore();
 
@@ -15,6 +17,7 @@ onMounted(async () => {
 
 const bookCount = computed(() => bookStore.books.length);
 const error = computed(() => bookStore.error);
+const loading = computed(() => bookStore.loading);
 
 const itemsPerPage = ref(5);
 const currentPage = ref(1);
@@ -35,7 +38,8 @@ const updateCurrentPage = (newPage: number) => {
 </script>
 
 <template>
-  <div>
+  <div v-if="loading"><BooksLoading /></div>
+  <div v-else>
     <div v-if="bookStore.error" class="error">
       <DisplayError :error="error" />
     </div>
@@ -64,20 +68,16 @@ const updateCurrentPage = (newPage: number) => {
       </v-container>
     </div>
 
-    <div v-else>No books to display</div>
+    <div v-else><NoBooksToDisplay /></div>
   </div>
 </template>
 
-<style scoped>
+<style>
 .custom-panel > div:nth-child(2n + 1) {
   background-color: rgb(244, 243, 243);
 }
 
 .error {
   color: rgb(255, 0, 0);
-}
-
-.v-icon {
-  display: none !important;
 }
 </style>
