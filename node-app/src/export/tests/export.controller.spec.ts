@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ExportController } from './export.controller';
-import { ExportService } from './export.service';
+import { ExportController } from '../export.controller';
+import { ExportService } from '../export.service';
 
 describe('ExportController', () => {
   let controller: ExportController;

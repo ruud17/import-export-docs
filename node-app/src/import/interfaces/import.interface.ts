@@ -1,10 +1,11 @@
-import { BookStateType, BookType } from 'src/common/types/book/book.types';
+import { BookStateType } from 'src/common/types/book/book.types';
+import { Document } from 'mongoose';
 
-export interface Import {
+export interface ImportJob extends Document {
   bookId: string;
-  type: BookType;
+  type: string;
   url: string;
   state: BookStateType;
   created_at: Date;
-  updated_at: Date;
+  updated_at?: Date;
 }

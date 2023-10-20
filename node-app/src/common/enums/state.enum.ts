@@ -1,4 +1,4 @@
 export enum State {
-  Pending,
-  Finished,
+  Pending = 'pending',
+  Finished = 'finished',
 }
