@@ -1,18 +1,24 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { ImportJobRequestDTO } from './dto/import-job-request.dto';
-import { ImportJob } from './interfaces/import.interface';
+import { CreateImportRequestDTO } from './dto/import-request.dto';
 import { State } from 'src/common/enums/state.enum';
+import { Import } from './schema/import.schema';
+import {
+  GetImportResponseDto,
+  CreateImportResponseDto,
+} from './dto/import-response.dto';
+import { ImportMapperService } from './mapper/import-mapper.service';
 
 @Injectable()
 export class ImportService {
   constructor(
-    @InjectModel('ImportJob') private importJobModel: Model<ImportJob>,
+    @InjectModel(Import.name) private importModel: Model<Import>,
+    private readonly importMapper: ImportMapperService,
   ) {}
 
-  async create(dto: ImportJobRequestDTO): Promise<ImportJob> {
-    const createdJob = new this.importJobModel(dto);
+  async create(body: CreateImportRequestDTO): Promise<CreateImportResponseDto> {
+    const createdJob = new this.importModel(body);
     const savedJob = await createdJob.save();
 
     const completionTime = this.getCompletionTime();
@@ -22,17 +28,13 @@ export class ImportService {
       await savedJob.save();
     }, completionTime);
 
-    return savedJob;
+    return this.importMapper.entityToDto(savedJob);
   }
 
-  async findAll(): Promise<Record<string, ImportJob[]>> {
-    const allJobs = await this.importJobModel.find().exec();
-    const groupedRequests = {
-      pending: allJobs.filter((req) => req.state === 'pending'),
-      finished: allJobs.filter((req) => req.state === 'finished'),
-    };
+  async findAll(): Promise<GetImportResponseDto> {
+    const allJobs = await this.importModel.find().exec();
 
-    return groupedRequests;
+    return this.importMapper.groupEntitesByStateToDto(allJobs);
   }
 
   private getCompletionTime(): number {

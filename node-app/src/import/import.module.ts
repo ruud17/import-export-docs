@@ -2,13 +2,14 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ImportService } from './import.service';
 import { ImportController } from './import.controller';
-import { ImportJobSchema } from './entities/import.entity';
+import { Import, ImportSchema } from './schema/import.schema';
+import { ImportMapperService } from './mapper/import-mapper.service';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: 'ImportJob', schema: ImportJobSchema }]),
+    MongooseModule.forFeature([{ name: Import.name, schema: ImportSchema }]),
   ],
   controllers: [ImportController],
-  providers: [ImportService],
+  providers: [ImportService, ImportMapperService],
 })
 export class ImportModule {}

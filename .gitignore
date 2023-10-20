@@ -1,6 +1,7 @@
 # compiled output and node_modules
 **/node-app/dist/
 **/node_modules/
+**/coverage
 
 # Logs
 **/logs
