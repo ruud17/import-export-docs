@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
-import { ImportModule } from './import/import.module';
-import { ExportModule } from './export/export.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ImportJobModule } from './import-job/import-job.module';
+import { ExportJobModule } from './export-job/export-job.module';
 
 @Module({
   imports: [
     MongooseModule.forRoot(process.env.DATABASE_URL),
-    ImportModule,
-    ExportModule,
+    ImportJobModule,
+    ExportJobModule,
   ],
   controllers: [],
   providers: [],
