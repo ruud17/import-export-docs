@@ -1,4 +1,4 @@
-import { ExportJob } from 'src/export-job/schema/export-job.schema';
+import { ExportJob } from '../../export-job/schema/export-job.schema';
 import { ExportType } from '../../common/enums/state.enum';
 
 export const groupExportJobsByState = (job: ExportJob) => ({

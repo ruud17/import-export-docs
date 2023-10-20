@@ -5,11 +5,11 @@ import {
   CreateExportJobResponseDto,
   GetExportJobResponseDto,
 } from '../dto/export-job-response.dto';
-import { ExportType, JobState } from 'src/common/enums/state.enum';
+import { ExportType, JobState } from '../../common/enums/state.enum';
 import { groupExportJobsByState } from '../helpers/export-job.helper';
 
 @Injectable()
-export class ExportMapperService {
+export class ExportJobMapperService {
   entityToDto(exportEntity: ExportJob): CreateExportJobResponseDto {
     return {
       bookId: exportEntity.bookId,

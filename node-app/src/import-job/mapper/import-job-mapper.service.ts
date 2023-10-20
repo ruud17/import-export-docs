@@ -5,7 +5,7 @@ import {
   CreateImportJobResponseDto,
   GetImportJobResponseDto,
 } from '../dto/import-job-response.dto';
-import { ImportType, JobState } from 'src/common/enums/state.enum';
+import { ImportType, JobState } from '../../common/enums/state.enum';
 import { groupImportJobsByState } from '../helpers/import-job.helper';
 
 @Injectable()
@@ -34,9 +34,5 @@ export class ImportJobMapperService {
       }
     }
     return mappedData;
-  }
-
-  entitiesToDtos(entities: ImportJob[]): CreateImportJobResponseDto[] {
-    return entities.map((entity) => this.entityToDto(entity));
   }
 }

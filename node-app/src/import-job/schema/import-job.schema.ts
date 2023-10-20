@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { ImportType, JobState } from 'src/common/enums/state.enum';
+import { ImportType, JobState } from '../../common/enums/state.enum';
 
 @Schema()
 export class ImportJob extends Document {

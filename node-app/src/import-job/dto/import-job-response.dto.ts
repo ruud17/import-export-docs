@@ -1,4 +1,4 @@
-import { ImportType, JobState } from 'src/common/enums/state.enum';
+import { ImportType, JobState } from '../../common/enums/state.enum';
 
 export interface CreateImportJobResponseDto {
   bookId: string;

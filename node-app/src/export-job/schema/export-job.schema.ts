@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { ExportType, JobState } from 'src/common/enums/state.enum';
+import { ExportType, JobState } from '../../common/enums/state.enum';
 
 @Schema()
 export class ExportJob extends Document {
@@ -20,4 +20,4 @@ export class ExportJob extends Document {
   updated_at?: Date;
 }
 
-export const ExportSchema = SchemaFactory.createForClass(ExportJob);
+export const ExportJobSchema = SchemaFactory.createForClass(ExportJob);

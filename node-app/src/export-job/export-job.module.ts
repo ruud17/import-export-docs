@@ -1,15 +1,17 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ExportService } from './export-job.service';
+import { ExportJobService } from './export-job.service';
 import { ExportJobController } from './export-job.controller';
-import { ExportJob, ExportSchema } from './schema/export-job.schema';
-import { ExportMapperService } from './mappers/export-job-mapper.service';
+import { ExportJob, ExportJobSchema } from './schema/export-job.schema';
+import { ExportJobMapperService } from './mappers/export-job-mapper.service';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: ExportJob.name, schema: ExportSchema }]),
+    MongooseModule.forFeature([
+      { name: ExportJob.name, schema: ExportJobSchema },
+    ]),
   ],
   controllers: [ExportJobController],
-  providers: [ExportService, ExportMapperService],
+  providers: [ExportJobService, ExportJobMapperService],
 })
 export class ExportJobModule {}

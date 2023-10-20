@@ -6,16 +6,16 @@ import {
   CreateExportJobResponseDto,
   GetExportJobResponseDto,
 } from './dto/export-job-response.dto';
-import { ExportType, JobState } from 'src/common/enums/state.enum';
+import { ExportType, JobState } from '../common/enums/state.enum';
 import { ExportJob } from './schema/export-job.schema';
-import { ExportMapperService } from './mappers/export-job-mapper.service';
+import { ExportJobMapperService } from './mappers/export-job-mapper.service';
 
 @Injectable()
-export class ExportService {
+export class ExportJobService {
   å;
   constructor(
     @InjectModel(ExportJob.name) private exportModel: Model<ExportJob>,
-    private readonly exportMapperService: ExportMapperService,
+    private readonly exportMapperService: ExportJobMapperService,
   ) {}
 
   async create(

@@ -1,5 +1,5 @@
 import { IsString, IsIn } from 'class-validator';
-import { ExportType } from 'src/common/enums/state.enum';
+import { ExportType } from '../../common/enums/state.enum';
 
 export class CreateExportJobRequestDTO {
   @IsString()

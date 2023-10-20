@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateImportJobRequestDTO } from './dto/import-job-request.dto';
-import { JobState } from 'src/common/enums/state.enum';
+import { JobState } from '../common/enums/state.enum';
 import { ImportJob } from './schema/import-job.schema';
 import {
   GetImportJobResponseDto,
