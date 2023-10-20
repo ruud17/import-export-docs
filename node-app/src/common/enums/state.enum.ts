@@ -4,7 +4,7 @@ export enum State {
 }
 
 export enum ImportType {
-  WORD = 'epub',
+  WORD = 'word',
   PDF = 'pdf',
   WATTPAD = 'wattpad',
   EVERNOTE = 'evernote',

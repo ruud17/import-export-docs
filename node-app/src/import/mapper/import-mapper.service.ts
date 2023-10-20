@@ -15,7 +15,7 @@ export class ImportMapperService {
       bookId: importEntity.bookId,
       url: importEntity.url,
       type: importEntity.type as ImportType,
-      state: importEntity.type as State,
+      state: importEntity.state as State,
       created_at: importEntity.created_at,
       updated_at: importEntity.updated_at,
     };
