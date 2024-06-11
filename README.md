@@ -1,4 +1,3 @@
-# reedsy-challenge-node
 
 This solution encompasses two directories, each offering code implementations for the specified topics:
 
